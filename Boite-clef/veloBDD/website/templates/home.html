@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content%}
+    <div>
+        <h2>Réserver un vélo</h2>
+        <form method="POST">
+            <div class="md-form">
+                <label for="start_date">Date de début :</label>
+                <input  type="date"
+                        id="start_date"
+                        name="start"
+                        value="<?php echo date('Y-m-d'); ?>" />
+            </div>
+
+          <input type="time" id="begin_hour" name="begin_hour">
+
+            <div class="md-form">
+                <label for="end_date">Date de fin :</label>
+                <input  type="date"
+                        id="end_date"
+                        name="end"
+                        value="<?php echo date('Y-m-d'); ?>" />
+            </div>
+
+            <input type="time" id="end_hour" name="end_hour">
+            <button type="submit"
+                    class="btn btn-primary">
+                Réserver
+            </button>
+        </form>
+    </div>
+
+    <hr>
+
+    {% if resa %}
+
+        <div>
+            <form method="POST">
+                <h2>Ma réservation :</h2>
+                <p>Début : {{resa.date_debut}}</p>
+                <p>Fin : {{resa.date_fin}}</p>
+
+                <p>Numéro de mon vélo : {{resa.id_velo}}</p>
+
+                {% if resa.id_velo != 0 %}
+                <div>
+                    <button type="submit"
+                            class="btn btn-primary"
+                            name="rendre"
+                            value="rendre"
+                            >
+                        Rendre le vélo
+                    </button>
+                    <button type="submit"
+                            class="btn btn-primary"
+                            name="pb"
+                            value="pb">
+                        Problème d'ouverture
+                    </button>
+                {% endif %}
+                    <button type="submit"
+                            class="btn btn-primary"
+                            name="ouvrir"
+                            value="ouvrir">
+                        Ouvrir ma boîte
+                    </button>
+
+                    
+                </div>
+            </form>
+        </div>
+
+        <hr>
+    {% endif %}
+
+    <div>
+        <h2>Mes informations :</h2>
+        <div class="md-form">
+            <p>Login : {{ user.nom }}</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div>
+        <h2>Un problème ?</h2>
+        <form method="POST">
+            <textarea id="problem" class="form-control" name="problem" rows="5" cols="33">
+Problème :
+            </textarea>
+            <button type="submit"
+                            class="btn btn-primary"
+                            name="problemSubmit"
+                            value="problemSubmit">
+                        Envoyer requête
+                    </button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.timepicker').timepicker({
+            twelveHour: false
+        });
+    });
+</script>
+{% endblock %}

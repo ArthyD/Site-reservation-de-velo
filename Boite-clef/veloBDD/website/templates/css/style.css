@@ -1,0 +1,26 @@
+img {
+    width: 5%;
+    border-radius: 10px;
+    display: none;
+}
+
+h2 {
+    text-align: center;
+}
+
+#navbar {
+    background-color: #2E2E2E;
+    height: 100%;
+}
+
+.FondTitre h1 {
+    background-size: cover;
+    background: rgba(0, 0, 0, 0.6)
+                url("https://www.bdd-imt-atlantique.fr/img/IMT-Atlantique.webp")
+                no-repeat
+                center;
+    padding: 5%;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 6px black;
+}

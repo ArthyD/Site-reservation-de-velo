@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content%}
+    <div class="row">
+        <form method="POST" class="col s12">
+            <div class="input-field col s12">
+                <label for="nom">Login :</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="nom"
+                    name="nom"
+                    placeholder="Ton login (nom)"
+                />
+            </div>
+
+            <div class="input-field col s12">
+                <label for="password">Mot de passe :</label>
+                <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    placeholder="Ton mot de passe"
+                />
+            </div>
+
+            <button type="submit"
+                    class="btn btn-primary">
+                Me connecter
+            </button>
+        </form>
+    </div>
+{%endblock%}
