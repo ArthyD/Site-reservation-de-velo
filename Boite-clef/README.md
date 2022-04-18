@@ -21,8 +21,6 @@ _Library nécessaire_ :
 
 Le type de carte est Arduino SAMD, pour programmer ces cartes : [documentation officielle arduino](https://docs.arduino.cc/hardware/mkr-wifi-1010)
 
-Partie assistance discord :
-
 
 
 ## Démarrage
