@@ -21,9 +21,6 @@ def home():
     user = User.query.filter_by(nom=nom).first()
     resa = Reservation.query.filter_by(id_user=user.id).first()
     bikes = Velo.query.all()
-    if resa.id_velo == None:
-        resa.id_velo = 0
-        db.session.commit()
     if request.method == 'POST':
         if 'ouvrir' in request.form:
             today = datetime.now()
@@ -31,7 +28,7 @@ def home():
                 # Si il n'y a pas de réservation
                 flash('Pas de réservation', category='error')
 
-            elif resa.id_velo != 0:
+            elif resa.id_velo != 0 and resa.id_velo != None:
                 # Si l'utilisateur a déjà un vélo
                 flash('Vous avez déjà le vélo ' + str(resa.id_velo))
 
@@ -116,7 +113,7 @@ def home():
                             db.session.delete(resa)
                             db.session.commit()
 
-                    new_resa = Reservation(date_debut=date1, date_fin=date2, id_user=user.id)
+                    new_resa = Reservation(date_debut=date1, date_fin=date2, id_user=user.id, id_velo=0)
                     db.session.add(new_resa)
                     db.session.commit()
 

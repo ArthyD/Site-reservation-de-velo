@@ -12,6 +12,11 @@ Partie serveur
 
 _Python_: Executez la commande ``pip install -r ./requirements.txt``
 
+Avant de lancer le serveur il faut initialiser certaines variables d'environnement :
+  - ``export ADMIN_NAME="nameAdmin"``
+  - ``export ADMIN_PWD="passwordAdmin"``
+  - ``export HASH_METHOD="sha256"``
+
 Partie Arduino
 
 _Library nécessaire_ :
